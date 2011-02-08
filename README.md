@@ -32,7 +32,7 @@ For instance this is how you would specify a sender:
 Properties currently supported are:
 
 * :sender
-* :TTL - time to live in seconds
+* :TTL - time to live in minutes
 * :deliverytime - a Time object specifying when to send the message
 
 Specifying Host
