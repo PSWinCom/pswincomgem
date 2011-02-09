@@ -26,7 +26,7 @@ Receiver and message text are the two mandatory properties when sending a messag
 
 For instance this is how you would specify a sender:
 
-    api.send_sms '4712345678', 'This is a test', :sender => 'Ruby'
+    api.send_sms 4712345678, 'This is a test', :sender => 'Ruby'
 
 Properties currently supported are:
 
