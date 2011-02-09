@@ -6,7 +6,7 @@ module PSWinCom
     API_HOST = 'http://gw2-fro.pswin.com:81/'
 
     def initialize
-      @host = PSWinCom::API.api_host.nil? ? API_HOST : PSWinCom::API.api_host
+      @host = API.api_host || API_HOST
       PSWinCom.debug "Host", @host
     end
 

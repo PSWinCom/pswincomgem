@@ -1,11 +1,10 @@
 PSWinCom Ruby Gem
 =================
 
-A Ruby interface to the [PSWinCom SMS Gateway API](http://pswin.com/english/products/gateway).
+A Ruby interface to the [PSWinCom SMS Gateway](http://pswin.com/english/products/gateway).
 
 Installation
 ------------
-The PSWinCom Ruby API comes as a gem. Install it with gem install. Other than the ruby default libraries the only dependency is the [builder gem](https://rubygems.org/gems/builder) (which will be installed automatically for you).
 
     gem install pswincom
 
@@ -19,7 +18,7 @@ This piece of code demonstrates how to send a simple SMS message:
     require 'pswincom'
 
     api = PSWinCom::API.new 'username', 'password'
-    api.send_sms '4712345678', 'This is a test SMS' 
+    api.send_sms 4712345678, 'This is a test SMS' 
 
 Properties
 ----------
