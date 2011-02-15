@@ -73,6 +73,10 @@ module PSWinCom
           "<MSG><ID>2</ID><TEXT>B</TEXT><RCV>2</RCV></MSG>" + 
           "</MSGLST></SESSION>"
       end
+      it "should fail if no messages has been added" do
+        api = API.new "user", "passwd"
+        lambda { result = api.send_sms }.should raise_error
+      end
     end
   end
 end
