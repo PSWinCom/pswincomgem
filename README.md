@@ -20,6 +20,14 @@ This piece of code demonstrates how to send a simple SMS message:
     api = PSWinCom::API.new 'username', 'password'
     api.send_sms 4712345678, 'This is a test SMS' 
 
+Multiple messages in single request
+-----------------------------------
+
+    api = PSWinCom::API.new 'username', 'password'
+    api.add_sms 4712345678, 'This is a test SMS' 
+    api.add_sms 4712345679, 'This is another test SMS' 
+    api.send_sms 
+
 Properties
 ----------
 Receiver and message text are the two mandatory properties when sending a message. You may specify additional properties by using a hash as the last argument to `send_sms`.
