@@ -20,8 +20,7 @@ This piece of code demonstrates how to send a simple SMS message:
     api = PSWinCom::API.new 'username', 'password'
     api.send_sms 4712345678, 'This is a test SMS' 
 
-Multiple messages in single request
------------------------------------
+You can also send multiple messages in a single request, like this:
 
     api = PSWinCom::API.new 'username', 'password'
     api.add_sms 4712345678, 'This is a test SMS' 
@@ -59,6 +58,23 @@ For testing purposes the API provides a couple of modes you can set globally to 
     PSWinCom::API.debug_mode = true
 
 .. will make the API output debug information to standard out.
+
+Command-line SMS tool
+---------------------
+The PSWinCom gem also comes with a command-line tool that will allow you to send an SMS directly from the command-line.
+
+To simplify the usage of the tool you may create a YAML configuration file in your home directory, in a file called .pswincom that resembles the following:
+
+    username: your_username
+    password: your_password
+    from: your_nick_or_something
+    host: optionally_override_api_host
+
+If you don't provide these options in the .pswincom file, you can specify them directly at the command-line.And only username and password are required. Run 'sms' without any arguments for a full list of options.
+
+You can then use the sms tool to send a message:
+
+    sms 4712345678 "Message from PSWinCom"
 
 License
 -------
