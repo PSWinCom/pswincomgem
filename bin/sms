@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+
+local_libs = [
+ File.join(File.dirname(__FILE__), *%w[../lib/pswincom]),
+ File.join(File.dirname(__FILE__), *%w[../lib/pswincom/utility/options]) 
+]
+
+if File.exist?(local_libs.first)
+  local_libs.each { |lib| require lib }
+else
+  require 'rubygems'
+  require 'pswincom'
+  require 'pswincom/utility/options'
+end
+
+# parse command line options
+options = PSWinCom::Utility::Options.parse(ARGV)
+
+PSWinCom::API.api_host = options.host if options.host
+
+# authenticate and load the API
+api = PSWinCom::API.new options.username, options.password
+
+begin
+  puts "Sending '#{options.message}' to #{options.recipient}.."
+  additional_opts = {}
+  additional_opts[:sender] = options.from if options.from
+  result = api.send_sms options.recipient, options.message, additional_opts
+  puts result.body
+  exit 0
+
+rescue StandardError => e
+  puts e
+
+end

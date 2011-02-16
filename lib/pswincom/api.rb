@@ -17,6 +17,9 @@ module PSWinCom
     self.debug_mode = false;
 
     def initialize user, password
+      if user.to_s.empty? or password.to_s.empty?
+        raise ArgumentError, "You must specify username and password" 
+      end
       @user, @password = user, password
       @request = Request.new :user => @user, :passwd => @password      
     end

@@ -23,6 +23,14 @@ module PSWinCom
         API.debug_mode.should == true
       end
     end
+    describe "#initialize" do
+      it "should fail if username or password is missing" do
+        lambda { API.new(nil, nil) }.should raise_error
+        lambda { API.new("user", nil) }.should raise_error
+        lambda { API.new(nil, "password") }.should raise_error
+        lambda { API.new("", "") }.should raise_error
+      end
+    end
     describe "#add_sms" do
       it "should add all messages to request" do
         api = API.new "user", "password"
