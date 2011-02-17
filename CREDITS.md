@@ -1,15 +1,11 @@
-Core Committers
----------------
+### Core Committers
 * [tormaroe](https://github.com/tormaroe)
 
-Contributors
-------------
+### Contributors
 * [volders](https://github.com/voldern)
 
-Suggestions
------------
+### Suggestions
 * [Tallak Tveide](https://github.com/tallakt)
 
-Inspiration
------------
+### Inspiration
 * [Luke Redpath](https://github.com/lukeredpath)
