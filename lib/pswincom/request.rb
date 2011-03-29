@@ -29,6 +29,7 @@ module PSWinCom
         m.RCV args[:receiver]
         m.SND args[:sender] if args[:sender]
         m.TTL args[:TTL] if args[:TTL]
+        m.TARIFF args[:tariff] if args[:tariff]
         m.DELIVERYTIME args[:deliverytime].strftime(TIME_FORMAT) if args.include? :deliverytime
       end
   end

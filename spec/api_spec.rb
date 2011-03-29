@@ -50,11 +50,11 @@ module PSWinCom
       it "should send message" do
         API.test_mode = false;  
         api = API.new "user", "passwd"
-        result = api.send_sms 12345, "A test message", :sender => 1111       
+        result = api.send_sms 12345, "A test message", :sender => 1111, :tariff => 500
         result.body.should == 
           "<?xml version=\"1.0\"?>\r\n" + 
           "<SESSION><CLIENT>user</CLIENT><PW>passwd</PW><MSGLST>" + 
-          "<MSG><ID>1</ID><TEXT>A test message</TEXT><RCV>12345</RCV><SND>1111</SND></MSG></MSGLST></SESSION>"
+          "<MSG><ID>1</ID><TEXT>A test message</TEXT><RCV>12345</RCV><SND>1111</SND><TARIFF>500</TARIFF></MSG></MSGLST></SESSION>"
       end
       it "should send previously added messages as well" do
         API.test_mode = false;  
