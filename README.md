@@ -40,7 +40,7 @@ Properties currently supported are:
 * :sender
 * :TTL - time to live in minutes
 * :deliverytime - a Time object specifying when to send the message
-* :tariff - the amount (in local currency as cents/"ører") to charge the receiver
+* :tariff - the amount (in local currency as cents/"&oslash;rer") to charge the receiver
 
 Specifying Host
 ---------------
