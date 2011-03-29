@@ -2,7 +2,7 @@
 * [tormaroe](https://github.com/tormaroe)
 
 ### Contributors
-* [volders](https://github.com/voldern)
+* [voldern](https://github.com/voldern)
 
 ### Suggestions
 * [Tallak Tveide](https://github.com/tallakt)
