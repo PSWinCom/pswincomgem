@@ -7,26 +7,39 @@ module PSWinCom
     class Options
       class << self
         
+        def current_setting setting          
+          value = @options.send(setting)
+          value ||= "(not set)"
+          "    #{setting.to_s}:".ljust(37) + value.to_s
+        end
+
         def parse(args)          
           @options = self.default_options
           parser = OptionParser.new do |opts|
             opts.banner = "Usage: sms [options] recipient(s) message"
+            opts.separator ""
             opts.separator "  Recipients can be a comma-separated list, up to 100 max."
             opts.separator ""
-            opts.separator "Specific options:"
+            opts.separator "  Current settings:"
+            opts.separator current_setting(:username)
+            opts.separator current_setting(:password)
+            opts.separator current_setting(:from)
+            opts.separator current_setting(:host)
+            opts.separator ""
+            opts.separator "  Specific options:"
           
             opts.on('-u', '--username USERNAME',
-              "Specify the pswincom username (overrides ~/.pswincom setting)") do |username|
+              "Specify username (overrides ~/.pswincom setting)") do |username|
                @options.username = username 
             end
           
             opts.on('-p', '--password PASSWORD',
-              "Specify the pswincom password (overrides ~/.pswincom setting)") do |password|
+              "Specify password (overrides ~/.pswincom setting)") do |password|
                @options.password = password
             end
                       
             opts.on('-f', '--from NAME_OR_NUMBER',
-              "Specify the name or number that the SMS will appear from") do |from|
+              "Specify name or number of sender") do |from|
                @options.from = from 
             end
             
@@ -35,11 +48,13 @@ module PSWinCom
               @options.host = host
             end
 
-            opts.on('-d', '--debug') do
+            opts.on('-d', '--debug',
+               "Print debug information") do
                PSWinCom::API.debug_mode = true
             end
 
-            opts.on('-t', '--test') do
+            opts.on('-t', '--test',
+               "Messages will not really be sent") do
                PSWinCom::API.test_mode = true
             end
           
