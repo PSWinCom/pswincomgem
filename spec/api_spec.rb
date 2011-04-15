@@ -37,13 +37,14 @@ module PSWinCom
         api.add_sms 123, "A"
         api.add_sms 456, "B", :TTL => 3
 
-        # Don't really like to poke into the inetrnals of objects like this, but..
-        request = api.instance_variable_get(:@request)
-        messages = request.instance_variable_get(:@messages)
-        messages.size.should == 2
-        messages[0][:receiver].should == 123
-        messages[1][:text].should == "B"
-        messages[1][:TTL].should == 3
+        api.instance_eval do
+          @request.instance_eval do
+            @messages.size.should == 2
+            @messages[0][:receiver].should == 123
+            @messages[1][:text].should == "B"
+            @messages[1][:TTL].should == 3
+          end
+        end
       end
     end
     describe "#send_sms" do
