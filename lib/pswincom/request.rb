@@ -9,6 +9,12 @@ module PSWinCom
       @messages = []		
     end
     def add args
+      # Only accept servicecode when there is a tariff associated
+      # with the message
+      if args[:servicecode] && args[:tariff].nil?
+        raise ArgumentError, "A message with a servicecode also needs a tariff"
+      end
+      
       @messages << args
       self
     end
@@ -30,6 +36,7 @@ module PSWinCom
         m.SND args[:sender] if args[:sender]
         m.TTL args[:TTL] if args[:TTL]
         m.TARIFF args[:tariff] if args[:tariff]
+        m.SERVICECODE args[:servicecode] if args[:servicecode]
         m.DELIVERYTIME args[:deliverytime].strftime(TIME_FORMAT) if args.include? :deliverytime
       end
   end
