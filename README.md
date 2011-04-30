@@ -41,7 +41,7 @@ Properties currently supported are:
 * :TTL - time to live in minutes
 * :deliverytime - a Time object specifying when to send the message
 * :tariff - the amount (in local currency as cents/"&oslash;rer") to charge the receiver
-* :servicecode - ServiceCode for sending GAS messages. Requires that :tariff is set
+* :servicecode - ServiceCode for sending GAS messages. Requires that :tariff is set. See [wiki](http://wiki.pswin.com/CPA-Goods-and-Services.ashx) for details.
 
 Specifying Host
 ---------------
