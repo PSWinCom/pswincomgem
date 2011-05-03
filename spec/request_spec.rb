@@ -28,6 +28,7 @@ module PSWinCom
         :sender => 'FooBar',
         :tariff => 500,
         :servicecode => 15001,
+        :rcpreq => true,
         :TTL => 4,
         :deliverytime => Time.utc(2011, 02, 15, 13, 30)
       request.xml.should ==
@@ -36,7 +37,7 @@ module PSWinCom
         "<MSG>" +
         "<ID>1</ID><TEXT>A delayed message</TEXT><RCV>88888888</RCV>" + 
         "<SND>FooBar</SND><TTL>4</TTL><TARIFF>500</TARIFF><SERVICECODE>15001</SERVICECODE>" +
-        "<DELIVERYTIME>201102151330</DELIVERYTIME>" +
+        "<RCPREQ>Y</RCPREQ><DELIVERYTIME>201102151330</DELIVERYTIME>" +
         "</MSG>" +
         "</MSGLST></SESSION>"
     end
