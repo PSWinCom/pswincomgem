@@ -42,6 +42,7 @@ Properties currently supported are:
 * :deliverytime - a Time object specifying when to send the message
 * :tariff - the amount (in local currency as cents/"&oslash;rer") to charge the receiver
 * :servicecode - ServiceCode for sending GAS messages. Requires that :tariff is set. See [wiki](http://wiki.pswin.com/CPA-Goods-and-Services.ashx) for details.
+* :rcpreq - Set to true to indicate that a delivery report forward is desired for this message. See [wiki](http://wiki.pswin.com/Receive%20delivery%20report%20request%20XML.ashx) for details.
 
 Specifying Host
 ---------------

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name            = 'pswincom'
-  s.version         = '0.1.6'
+  s.version         = '0.1.7'
   s.authors         = ['PSWinCom AS']
   s.email           = ['post@pswin.com']
   s.homepage        = 'http://github.com/tormaroe/pswincomgem'
