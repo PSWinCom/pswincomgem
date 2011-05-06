@@ -37,7 +37,7 @@ module PSWinCom
         m.TTL args[:TTL] if args[:TTL]
         m.TARIFF args[:tariff] if args[:tariff]
         m.SERVICECODE args[:servicecode] if args[:servicecode]
-        m.RCPREQ((args[:rcpreq] == true ? 'Y' : 'N')) if args[:rcpreq]
+        m.RCPREQ 'Y' if args[:rcpreq] == true
         m.DELIVERYTIME args[:deliverytime].strftime(TIME_FORMAT) if args.include? :deliverytime
       end
   end
