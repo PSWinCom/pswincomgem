@@ -13,8 +13,8 @@ module PSWinCom
     def send request
       url = URI.parse @host
       post = Net::HTTP::Post.new(url.path)
-      post.body = request.xml
-      post.content_type = 'text/xml'
+      post.body = request.xml.encode("ISO-8859-1")
+      post.content_type = 'text/xml charset=ISO-8859-1'
       Net::HTTP.start(url.host, url.port) {|http| http.request(post)}
     end
   end
