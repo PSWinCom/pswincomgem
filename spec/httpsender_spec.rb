@@ -25,7 +25,7 @@ module PSWinCom
       it "sends XML with correct content type" do
         post = HttpSender.new.send(XmlMock.new("<xml>foo</xml>"))
         post.body.should == "<xml>foo</xml>"
-        post.content_type.should == 'text/xml'
+        post.content_type.should == 'text/xml charset=ISO-8859-1'
       end
     end
   end
