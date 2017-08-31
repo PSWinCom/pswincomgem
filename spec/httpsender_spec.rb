@@ -8,7 +8,8 @@ module PSWinCom
   describe HttpSender do
     describe "#initialize" do
       it "uses default host" do
-        HttpSender.new.instance_variable_get(:@host).should == 'http://gw2-fro.pswin.com:81/'
+        # HttpSender.new.instance_variable_get(:@host).should == 'http://gw2-fro.pswin.com:81/'
+        expect(HttpSender.new.instance_variable_get(:@host)).to eq 'http://xml.pswin.com/'
       end
       it "uses custom host if specified" do
         API.api_host = 'http://google.com/'
@@ -25,7 +26,8 @@ module PSWinCom
       it "sends XML with correct content type" do
         post = HttpSender.new.send(XmlMock.new("<xml>foo</xml>"))
         post.body.should == "<xml>foo</xml>"
-        post.content_type.should == 'text/xml charset=ISO-8859-1'
+        # post.content_type.should == 'text/xml charset=ISO-8859-1'
+        expect(post.content_type).to eq 'application/xml charset=utf-8'
       end
     end
   end
